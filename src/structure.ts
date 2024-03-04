@@ -4,15 +4,16 @@ import {StructureResolver} from 'sanity/structure'
 export const structure: StructureResolver = (S) => {
   const GFNC_ListItem = S.listItem()
     .title('[GFNC] The Good for Nothings Club')
+    .icon(() => '🤙')
     .child(S.list().title('GFNC Documents').items([]))
 
   const IIHD_countryList = S.documentTypeList('IIHD_country')
   const IIHD_administrativeAreaLevel1List = S.documentTypeList('IIHD_administrativeAreaLevel1')
   const IIHD_administrativeAreaLevel2List = S.documentTypeList('IIHD_administrativeAreaLevel2')
   const IIHD_localityList = S.documentTypeList('IIHD_locality')
-
   const IIHD_ListItem = S.listItem()
     .title('[IIHD] Is It Here? Data')
+    .icon(() => '🌍')
     .child(
       S.list()
         .title('IIHD Documents')
@@ -41,6 +42,7 @@ export const structure: StructureResolver = (S) => {
       S.divider(),
       GFNC_ListItem,
       IIHD_ListItem,
+      S.divider(),
       S.documentTypeListItem(contextDocumentTypeName),
     ])
 }

@@ -4,7 +4,9 @@ import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {assist} from '@sanity/assist'
 
-import {structure} from './src/structure'
+import {structure, defaultDocumentNode} from './src/structureTool'
+import {studio} from './src/studio'
+
 import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
@@ -17,6 +19,7 @@ export default defineConfig({
   plugins: [
     structureTool({
       structure,
+      defaultDocumentNode,
     }),
     visionTool(),
     assist(),
@@ -25,4 +28,6 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
+
+  studio,
 })

@@ -7,7 +7,7 @@ import {
 } from './common/isWeedLegalHere'
 
 const schema = defineType({
-  title: 'Administrative area Level 2 (US County)',
+  title: 'Administrative Area Level 2 (US County)',
   name: 'IIHD_administrativeAreaLevel2',
   type: 'document',
   groups: [

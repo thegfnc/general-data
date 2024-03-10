@@ -13,9 +13,7 @@ export const structure: StructureResolver = (S) => {
     .child(S.list().title('GFNC Documents').items([]))
 
   const IIHD_countryList = S.documentTypeList('IIHD_country')
-  const IIHD_administrativeAreaLevel1List = S.documentTypeList('IIHD_administrativeAreaLevel1')
-  const IIHD_administrativeAreaLevel2List = S.documentTypeList('IIHD_administrativeAreaLevel2')
-  const IIHD_localityList = S.documentTypeList('IIHD_locality')
+
   const IIHD_ListItem = S.listItem()
     .title('Is It Here? Data [IIHD]')
     .icon(() => IIHD_icon)
@@ -27,18 +25,6 @@ export const structure: StructureResolver = (S) => {
             .icon(() => IIHD_icon)
             .title(IIHD_countryList.getTitle() || '')
             .child(IIHD_countryList),
-          S.listItem()
-            .icon(() => IIHD_icon)
-            .title(IIHD_administrativeAreaLevel1List.getTitle() || '')
-            .child(IIHD_administrativeAreaLevel1List),
-          S.listItem()
-            .icon(() => IIHD_icon)
-            .title(IIHD_administrativeAreaLevel2List.getTitle() || '')
-            .child(IIHD_administrativeAreaLevel2List),
-          S.listItem()
-            .icon(() => IIHD_icon)
-            .title(IIHD_localityList.getTitle() || '')
-            .child(IIHD_localityList),
         ]),
     )
 

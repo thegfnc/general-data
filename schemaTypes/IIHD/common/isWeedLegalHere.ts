@@ -64,7 +64,7 @@ export const createField = (additionalFields: FieldDefinition[] = []) =>
             name: 'legalStatus',
             type: 'string',
             options: {
-              list: ['legal', 'decriminalized', 'illegal', 'unknown'],
+              list: ['legal', 'decriminalized', 'illegal', 'unclear', 'unknown'],
             },
           }),
           defineField({
@@ -88,7 +88,7 @@ export const createField = (additionalFields: FieldDefinition[] = []) =>
             name: 'legalStatus',
             type: 'string',
             options: {
-              list: ['legal', 'decriminalized', 'illegal', 'unknown'],
+              list: ['legal', 'decriminalized', 'illegal', 'unclear', 'unknown'],
             },
           }),
           defineField({
@@ -112,7 +112,7 @@ export const createField = (additionalFields: FieldDefinition[] = []) =>
             name: 'legalStatus',
             type: 'string',
             options: {
-              list: ['legal', 'decriminalized', 'illegal', 'unknown'],
+              list: ['legal', 'decriminalized', 'illegal', 'unclear', 'unknown'],
             },
           }),
           defineField({
@@ -136,7 +136,7 @@ export const createField = (additionalFields: FieldDefinition[] = []) =>
             name: 'legalStatus',
             type: 'string',
             options: {
-              list: ['legal', 'decriminalized', 'illegal', 'unknown'],
+              list: ['legal', 'decriminalized', 'illegal', 'unclear', 'unknown'],
             },
           }),
           defineField({
@@ -160,7 +160,7 @@ export const createField = (additionalFields: FieldDefinition[] = []) =>
             name: 'legalStatus',
             type: 'string',
             options: {
-              list: ['legal', 'decriminalized', 'illegal', 'unknown'],
+              list: ['legal', 'decriminalized', 'illegal', 'unclear', 'unknown'],
             },
           }),
           defineField({

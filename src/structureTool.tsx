@@ -1,7 +1,7 @@
-import {contextDocumentTypeName} from '@sanity/assist'
-import {Card} from '@sanity/ui'
-import {SanityDocument} from 'sanity'
-import {DefaultDocumentNodeResolver, StructureResolver, UserViewComponent} from 'sanity/structure'
+import { contextDocumentTypeName } from '@sanity/assist'
+import { CalendarIcon } from '@sanity/icons'
+import { DefaultDocumentNodeResolver, StructureResolver } from 'sanity/structure'
+import DocumentsPane from '../plugins/documentsPane'
 
 export const GFNC_icon = <img src="/static/GFNC_icon.png" alt="GFNC" />
 export const IIHD_icon = <img src="/static/IIHD_icon.png" alt="IIHD" />
@@ -13,6 +13,9 @@ export const structure: StructureResolver = (S) => {
     .child(S.list().title('GFNC Documents').items([]))
 
   const IIHD_countryList = S.documentTypeList('IIHD_country')
+  const IIHD_administrativeAreaLevel1List = S.documentTypeList('IIHD_administrativeAreaLevel1')
+  const IIHD_administrativeAreaLevel2List = S.documentTypeList('IIHD_administrativeAreaLevel2')
+  const IIHD_localityList = S.documentTypeList('IIHD_locality')
 
   const IIHD_ListItem = S.listItem()
     .title('Is It Here? Data [IIHD]')
@@ -25,6 +28,43 @@ export const structure: StructureResolver = (S) => {
             .icon(() => IIHD_icon)
             .title(IIHD_countryList.getTitle() || '')
             .child(IIHD_countryList),
+          S.divider(),
+          S.listItem()
+            .icon(() => <CalendarIcon />)
+            .title('Countries updated in last 7 days')
+            .child(
+              IIHD_countryList.filter('_type == "IIHD_country" && _updatedAt > $date').params({
+                date: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7),
+              }),
+            ),
+          S.listItem()
+            .icon(() => <CalendarIcon />)
+            .title('AAL1s updated in last 7 days')
+            .child(
+              IIHD_administrativeAreaLevel1List.filter(
+                '_type == "IIHD_administrativeAreaLevel1" && _updatedAt > $date',
+              ).params({
+                date: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7),
+              }),
+            ),
+          S.listItem()
+            .icon(() => <CalendarIcon />)
+            .title('AAL2s updated in last 7 days')
+            .child(
+              IIHD_administrativeAreaLevel2List.filter(
+                '_type == "IIHD_administrativeAreaLevel2" && _updatedAt > $date',
+              ).params({
+                date: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7),
+              }),
+            ),
+          S.listItem()
+            .icon(() => <CalendarIcon />)
+            .title('Localities updated in last 7 days')
+            .child(
+              IIHD_localityList.filter('_type == "IIHD_locality" && _updatedAt > $date').params({
+                date: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7),
+              }),
+            ),
         ]),
     )
 
@@ -41,21 +81,16 @@ export const structure: StructureResolver = (S) => {
     ])
 }
 
-type UserViewComponentProps = {
-  document: {
-    draft: SanityDocument | null
-    displayed: Partial<SanityDocument>
-    historical: Partial<SanityDocument> | null
-    published: SanityDocument | null
-  }
-}
-
-const RawJSON: UserViewComponent = ({document}: UserViewComponentProps) => (
-  <Card padding={4}>
-    <pre>{JSON.stringify(document.displayed, null, 2)}</pre>
-  </Card>
-)
-
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (S) => {
-  return S.document().views([S.view.form(), S.view.component(RawJSON).title('Raw JSON')])
+  return S.document().views([
+    S.view.form(),
+    S.view
+      .component(DocumentsPane)
+      .options({
+        query: `*[references($id)]`,
+        params: { id: `_id` },
+        options: { perspective: 'previewDrafts' },
+      })
+      .title('Referenced By'),
+  ])
 }

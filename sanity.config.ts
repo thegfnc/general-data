@@ -1,13 +1,13 @@
-import {defineConfig} from 'sanity'
+import { defineConfig } from 'sanity'
 
-import {structureTool} from 'sanity/structure'
-import {visionTool} from '@sanity/vision'
-import {assist} from '@sanity/assist'
+import { structureTool } from 'sanity/structure'
+import { visionTool } from '@sanity/vision'
+import { assist } from '@sanity/assist'
 
-import {structure, defaultDocumentNode} from './src/structureTool'
-import {studio} from './src/studio'
+import { structure, defaultDocumentNode } from './src/structureTool'
+import { studio } from './src/studio'
 
-import {schemaTypes} from './schemaTypes'
+import { schemaTypes } from './schemaTypes'
 
 export default defineConfig({
   name: 'default',

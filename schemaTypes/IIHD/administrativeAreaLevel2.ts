@@ -1,5 +1,5 @@
-import {defineType, defineField} from 'sanity'
-import {StringRule} from '@sanity/types'
+import { defineType, defineField } from 'sanity'
+import { StringRule } from '@sanity/types'
 
 import {
   group as isWeedLegalHereGroup,
@@ -36,7 +36,7 @@ const schema = defineType({
         of: [
           {
             type: 'reference',
-            to: [{type: 'IIHD_administrativeAreaLevel2'}],
+            to: [{ type: 'IIHD_administrativeAreaLevel2' }],
           },
         ],
       },

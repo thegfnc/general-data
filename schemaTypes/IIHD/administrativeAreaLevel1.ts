@@ -1,5 +1,5 @@
-import {defineType, defineField, defineArrayMember} from 'sanity'
-import {StringRule} from '@sanity/types'
+import { defineType, defineField, defineArrayMember } from 'sanity'
+import { StringRule } from '@sanity/types'
 
 import {
   group as isWeedLegalHereGroup,
@@ -44,7 +44,7 @@ const schema = defineType({
           of: [
             defineArrayMember({
               type: 'reference',
-              to: [{type: 'IIHD_administrativeAreaLevel2'}],
+              to: [{ type: 'IIHD_administrativeAreaLevel2' }],
             }),
           ],
         }),
@@ -67,7 +67,7 @@ const schema = defineType({
           of: [
             defineArrayMember({
               type: 'reference',
-              to: [{type: 'IIHD_locality'}],
+              to: [{ type: 'IIHD_locality' }],
             }),
           ],
         }),
@@ -83,7 +83,7 @@ const schema = defineType({
         of: [
           {
             type: 'reference',
-            to: [{type: 'IIHD_administrativeAreaLevel1'}],
+            to: [{ type: 'IIHD_administrativeAreaLevel1' }],
           },
         ],
       },

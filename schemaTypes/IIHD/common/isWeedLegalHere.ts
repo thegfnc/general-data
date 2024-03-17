@@ -1,4 +1,4 @@
-import {defineField, defineArrayMember, FieldGroupDefinition, FieldDefinition} from 'sanity'
+import { defineField, defineArrayMember, FieldGroupDefinition, FieldDefinition } from 'sanity'
 
 export const group: FieldGroupDefinition = {
   title: 'Is weed legal here?',

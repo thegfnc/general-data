@@ -2,6 +2,7 @@ import { contextDocumentTypeName } from '@sanity/assist'
 import { CalendarIcon } from '@sanity/icons'
 import { DefaultDocumentNodeResolver, StructureResolver } from 'sanity/structure'
 import DocumentsPane from '../plugins/documentsPane'
+import ReferencedBy from '../plugins/referencedBy'
 
 export const GFNC_icon = <img src="/static/GFNC_icon.png" alt="GFNC" />
 export const IIHD_icon = <img src="/static/IIHD_icon.png" alt="IIHD" />
@@ -82,15 +83,5 @@ export const structure: StructureResolver = (S) => {
 }
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (S) => {
-  return S.document().views([
-    S.view.form(),
-    S.view
-      .component(DocumentsPane)
-      .options({
-        query: `*[references($id)]`,
-        params: { id: `_id` },
-        options: { perspective: 'previewDrafts' },
-      })
-      .title('Referenced By'),
-  ])
+  return S.document().views([S.view.form(), S.view.component(ReferencedBy).title('Referenced By')])
 }

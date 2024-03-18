@@ -1,7 +1,6 @@
 import { contextDocumentTypeName } from '@sanity/assist'
 import { CalendarIcon } from '@sanity/icons'
 import { DefaultDocumentNodeResolver, StructureResolver } from 'sanity/structure'
-import DocumentsPane from '../plugins/documentsPane'
 import ReferencedBy from '../plugins/referencedBy'
 
 export const GFNC_icon = <img src="/static/GFNC_icon.png" alt="GFNC" />

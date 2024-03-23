@@ -4,9 +4,9 @@
 
 - `GFNC` - https://www.thegoodfornothings.club - The Good for Nothings Club portfolio site data
 - `IIHD` - Is It Here Data, emcompassing:
-  - https://www.isweedlegalhere.com/ - Is Weed Legal Here? data
-  - https://www.isgamblinglegalhere.com/ - Is Gambling Legal Here? data
-  - https://www.whendobarsclosehere.com/ - When Do Bars Close Here? data
+  - `IWLH` – https://www.isweedlegalhere.com/ - Is Weed Legal Here? data
+  - `IGLH` – https://www.isgamblinglegalhere.com/ - Is Gambling Legal Here? data
+  - `WBCH` – https://www.whendobarsclosehere.com/ - When Do Bars Close Here? data
 
 ## Things to remember
 

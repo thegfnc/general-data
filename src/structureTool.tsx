@@ -7,10 +7,26 @@ export const GFNC_icon = <img src="/static/GFNC_icon.png" alt="GFNC" />
 export const IIHD_icon = <img src="/static/IIHD_icon.png" alt="IIHD" />
 
 export const structure: StructureResolver = (S) => {
+  const GFNC_memberList = S.documentTypeList('GFNC_member')
+  const GFNC_projectList = S.documentTypeList('GFNC_project')
+
   const GFNC_ListItem = S.listItem()
     .title('The Good for Nothings Club [GFNC]')
     .icon(() => GFNC_icon)
-    .child(S.list().title('GFNC Documents').items([]))
+    .child(
+      S.list()
+        .title('GFNC Documents')
+        .items([
+          S.listItem()
+            .icon(() => GFNC_icon)
+            .title(GFNC_memberList.getTitle() || '')
+            .child(GFNC_memberList),
+          S.listItem()
+            .icon(() => GFNC_icon)
+            .title(GFNC_projectList.getTitle() || '')
+            .child(GFNC_projectList),
+        ]),
+    )
 
   const IIHD_countryList = S.documentTypeList('IIHD_country')
   const IIHD_administrativeAreaLevel1List = S.documentTypeList('IIHD_administrativeAreaLevel1')

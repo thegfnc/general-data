@@ -31,6 +31,7 @@ const schema = defineType({
           imageDescriptionField: 'caption',
         },
         hotspot: true,
+        storeOriginalFilename: false,
       },
       fields: [
         {

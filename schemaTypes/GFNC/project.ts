@@ -6,17 +6,19 @@ const schema = defineType({
   type: 'document',
   fields: [
     defineField({
-      title: 'Title',
+      title: 'Project Title',
       name: 'title',
       type: 'string',
       description: 'The title of the project.',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      title: 'Subtitle',
-      name: 'subtitle',
+      title: 'Client Name',
+      name: 'clientName',
       type: 'string',
-      description: 'Use this field to optionally catch the overflow for long titles.',
+      description:
+        'This field is called client name for lack of a better term. It serves as the subject of the project, internal or external, and can repeat across multiple projects.',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       title: 'Slug',
@@ -73,6 +75,7 @@ const schema = defineType({
           imageDescriptionField: 'caption',
         },
         hotspot: true,
+        storeOriginalFilename: false,
       },
       fields: [
         {
@@ -115,6 +118,7 @@ const schema = defineType({
               imageDescriptionField: 'caption',
             },
             hotspot: true,
+            storeOriginalFilename: false,
           },
           fields: [
             {
@@ -144,6 +148,7 @@ const schema = defineType({
               imageDescriptionField: 'caption',
             },
             hotspot: true,
+            storeOriginalFilename: false,
           },
           fields: [
             {

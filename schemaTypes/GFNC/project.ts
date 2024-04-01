@@ -34,12 +34,7 @@ const schema = defineType({
       name: 'type',
       type: 'string',
       options: {
-        list: [
-          { title: 'Web', value: 'web' },
-          { title: 'Video', value: 'video' },
-          { title: 'Photo', value: 'photo' },
-          { title: 'Audio', value: 'audio' },
-        ],
+        list: ['Web', 'Video', 'Photo', 'Audio'],
       },
       validation: (Rule) => Rule.required(),
     }),

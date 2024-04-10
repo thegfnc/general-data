@@ -97,16 +97,33 @@ const schema = defineType({
     defineField({
       title: 'Summary',
       name: 'summary',
-      type: 'text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [{ title: 'Normal', value: 'normal' }],
+          lists: [],
+          marks: {
+            decorators: [],
+            annotations: [],
+          },
+        },
+      ],
       description:
         "A brief summary of the project to use under the thumbnail on the projects list page and the homepage if it's featured. It is typically a more concise version of the overview.",
       validation: (Rule) => Rule.required().max(500),
-      rows: 3,
     }),
     defineField({
       title: 'Overview',
       name: 'overview',
-      type: 'text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [{ title: 'Normal', value: 'normal' }],
+          lists: [],
+        },
+      ],
       description:
         'This appears on the project page, below the featured image and above the case study.',
       validation: (Rule) => Rule.required(),

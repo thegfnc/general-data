@@ -8,6 +8,7 @@ const schema = defineType({
     select: {
       title: 'title',
       subtitle: 'clientName',
+      media: 'mainImage',
     },
   },
   fields: [

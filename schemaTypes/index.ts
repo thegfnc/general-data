@@ -6,7 +6,8 @@ import IIHD_administrativeAreaLevel2 from './IIHD/administrativeAreaLevel2'
 import IIHD_country from './IIHD/country'
 import IIHD_locality from './IIHD/locality'
 
-import youTubeType from './youTubeType'
+import embedUrlType from './embedUrlType'
+import embedCodeType from './embedCodeType'
 
 export const schemaTypes = [
   GFNC_member,
@@ -17,5 +18,6 @@ export const schemaTypes = [
   IIHD_administrativeAreaLevel2,
   IIHD_locality,
 
-  youTubeType,
+  embedUrlType,
+  embedCodeType,
 ]

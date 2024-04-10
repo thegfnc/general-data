@@ -11,6 +11,7 @@ import { schemaTypes } from './schemaTypes'
 import { scheduledPublishing } from '@sanity/scheduled-publishing'
 import { media } from 'sanity-plugin-media'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
+import { codeInput } from '@sanity/code-input'
 
 export default defineConfig({
   name: 'default',
@@ -29,6 +30,7 @@ export default defineConfig({
     visionTool(),
     assist(),
     unsplashImageAsset(),
+    codeInput(),
   ],
 
   schema: {

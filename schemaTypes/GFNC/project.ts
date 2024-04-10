@@ -59,11 +59,17 @@ const schema = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      title: 'Featured Image',
-      name: 'featuredImage',
+      title: 'Featured Project?',
+      name: 'featured',
+      type: 'boolean',
+      description: 'If checked, this project will be featured on the homepage.',
+    }),
+    defineField({
+      title: 'Main Image',
+      name: 'mainImage',
       type: 'image',
       description:
-        'This image is used as the thumbnail on the projects list page and the banner on the individual project page.',
+        'This image is used as the thumbnail on list pages (Projects, Homepage) and the banner on the project detail page.',
       validation: (Rule) => Rule.required().assetRequired(),
       options: {
         aiAssist: {

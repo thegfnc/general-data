@@ -4,6 +4,12 @@ const schema = defineType({
   title: 'Project',
   name: 'GFNC_project',
   type: 'document',
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'clientName',
+    },
+  },
   fields: [
     defineField({
       title: 'Project Title',

@@ -25,7 +25,7 @@ const schema = defineType({
       name: 'slug',
       type: 'slug',
       options: {
-        source: 'name',
+        source: (doc) => `${doc.clientName}-${doc.title}`,
       },
       validation: (Rule) => Rule.required(),
     }),

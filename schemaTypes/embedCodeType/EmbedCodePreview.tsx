@@ -12,7 +12,7 @@ export function EmbedCodePreview(props: PreviewProps) {
   return (
     <Card overflow="auto" padding={4}>
       <Stack space={4}>
-        <Heading size={0}>Embedded Code</Heading>
+        <Heading size={0}>Embed Code</Heading>
         <Code size={1} style={{ textWrap: 'wrap' }}>
           {title}
         </Code>

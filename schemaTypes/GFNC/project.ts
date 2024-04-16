@@ -34,6 +34,8 @@ const schema = defineType({
       options: {
         source: (doc) => `${doc.clientName}-${doc.title}`,
       },
+      description:
+        'NOTE: Changing this after publishing for the first time will break existing links to this page. If you definitely want to change this, reach out to Jason so he can implement a redirect to transfer the SEO juice.',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

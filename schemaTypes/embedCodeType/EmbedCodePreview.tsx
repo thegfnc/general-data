@@ -1,6 +1,5 @@
 import type { PreviewProps } from 'sanity'
-import { Card, Code, Container, Flex, Heading, Stack, Text } from '@sanity/ui'
-import ReactPlayer from 'react-player'
+import { Card, Code, Heading, Stack, Text } from '@sanity/ui'
 
 export function EmbedCodePreview(props: PreviewProps) {
   const { title } = props

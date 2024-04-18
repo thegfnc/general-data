@@ -7,8 +7,8 @@ export const GFNC_icon = <img src="/static/GFNC_icon.png" alt="GFNC" />
 export const IIHD_icon = <img src="/static/IIHD_icon.png" alt="IIHD" />
 
 export const structure: StructureResolver = (S) => {
-  const GFNC_memberList = S.documentTypeList('GFNC_member')
-  const GFNC_projectList = S.documentTypeList('GFNC_project')
+  const GFNC_memberList = S.documentTypeList('GFNC_member').apiVersion('v2024-04-18')
+  const GFNC_projectList = S.documentTypeList('GFNC_project').apiVersion('v2024-04-18')
 
   const GFNC_ListItem = S.listItem()
     .title('The Good for Nothings Club [GFNC]')
@@ -28,10 +28,14 @@ export const structure: StructureResolver = (S) => {
         ]),
     )
 
-  const IIHD_countryList = S.documentTypeList('IIHD_country')
-  const IIHD_administrativeAreaLevel1List = S.documentTypeList('IIHD_administrativeAreaLevel1')
-  const IIHD_administrativeAreaLevel2List = S.documentTypeList('IIHD_administrativeAreaLevel2')
-  const IIHD_localityList = S.documentTypeList('IIHD_locality')
+  const IIHD_countryList = S.documentTypeList('IIHD_country').apiVersion('v2024-04-18')
+  const IIHD_administrativeAreaLevel1List = S.documentTypeList(
+    'IIHD_administrativeAreaLevel1',
+  ).apiVersion('v2024-04-18')
+  const IIHD_administrativeAreaLevel2List = S.documentTypeList(
+    'IIHD_administrativeAreaLevel2',
+  ).apiVersion('v2024-04-18')
+  const IIHD_localityList = S.documentTypeList('IIHD_locality').apiVersion('v2024-04-18')
 
   const IIHD_ListItem = S.listItem()
     .title('Is It Here? Data [IIHD]')

@@ -17,6 +17,7 @@ export default defineType({
         language: 'html',
         languageAlternatives: [{ title: 'HTML', value: 'html' }],
       },
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

@@ -1,3 +1,4 @@
+import { PlayIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 const schema = defineType({
@@ -188,6 +189,7 @@ const schema = defineType({
             },
           ],
         },
+        { type: 'videoFile' },
         { type: 'embedUrl' },
         { type: 'embedCode' },
       ],

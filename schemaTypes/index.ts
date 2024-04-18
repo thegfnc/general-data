@@ -6,8 +6,9 @@ import IIHD_administrativeAreaLevel2 from './IIHD/administrativeAreaLevel2'
 import IIHD_country from './IIHD/country'
 import IIHD_locality from './IIHD/locality'
 
-import embedUrlType from './embedUrlType'
-import embedCodeType from './embedCodeType'
+import embedUrlType from './fields/embedUrlType'
+import embedCodeType from './fields/embedCodeType'
+import videoFileType from './fields/videoFileType'
 
 export const schemaTypes = [
   GFNC_member,
@@ -20,4 +21,5 @@ export const schemaTypes = [
 
   embedUrlType,
   embedCodeType,
+  videoFileType,
 ]

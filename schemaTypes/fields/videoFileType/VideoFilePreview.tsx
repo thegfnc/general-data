@@ -11,7 +11,7 @@ export function VideoFilePreview(props: PreviewProps) {
         <Heading size={0}>Video File</Heading>
         <Flex padding={3} align="center" justify="center">
           {typeof url === 'string' ? (
-            <ReactPlayer url={url} loop={true} controls={true} />
+            <ReactPlayer url={url} controls={true} />
           ) : (
             <Stack space={3}>
               <Text align="center">Upload a video file</Text>

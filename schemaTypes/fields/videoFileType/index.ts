@@ -16,7 +16,7 @@ export default defineType({
   validation: (Rule) => Rule.required().assetRequired(),
   fields: [
     defineField({
-      name: 'autoPlay',
+      name: 'playing',
       type: 'boolean',
       title: 'Auto Play',
       description: 'Automatically start playing the video when the page loads.',

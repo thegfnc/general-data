@@ -54,7 +54,6 @@ const schema = defineType({
             list: [
               'Musician',
               'Software Engineer',
-              'Copywriter',
               'Writer',
               'Videographer',
               'Photographer',

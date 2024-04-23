@@ -8,7 +8,6 @@ import { structure, defaultDocumentNode } from './src/structureTool'
 import { studio } from './src/studio'
 
 import { schemaTypes } from './schemaTypes'
-import { scheduledPublishing } from '@sanity/scheduled-publishing'
 import { media } from 'sanity-plugin-media'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import { codeInput } from '@sanity/code-input'
@@ -26,7 +25,6 @@ export default defineConfig({
       defaultDocumentNode,
     }),
     media(),
-    scheduledPublishing(),
     visionTool(),
     assist(),
     unsplashImageAsset(),

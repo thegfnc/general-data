@@ -128,21 +128,7 @@ const schema = defineType({
         }),
       ],
     }),
-    createIsWeedLegalHereField([
-      {
-        title: 'Nearest Legal Countries',
-        name: 'nearestLegalLocations',
-        type: 'array',
-        description:
-          'The countries nearest to this one where cannabis is legal. Only fill out this field for countries where cannabis is illegal or only decriminalized.',
-        of: [
-          {
-            type: 'reference',
-            to: [{ type: 'IIHD_country' }],
-          },
-        ],
-      },
-    ]),
+    createIsWeedLegalHereField(),
   ],
 })
 

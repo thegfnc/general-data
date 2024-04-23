@@ -26,21 +26,7 @@ const schema = defineType({
       group: 'general',
       validation: (Rule: StringRule) => Rule.required(),
     }),
-    createIsWeedLegalHereField([
-      {
-        title: 'Nearest Legal Administrative area Level 2 Locations',
-        name: 'nearestLegalLocations',
-        type: 'array',
-        description:
-          'The administrative area level 2 locations nearest to this one where cannabis is legal. Only fill out this field for administrative area level 2 locations where cannabis is illegal or only decriminalized.',
-        of: [
-          {
-            type: 'reference',
-            to: [{ type: 'IIHD_administrativeAreaLevel2' }],
-          },
-        ],
-      },
-    ]),
+    createIsWeedLegalHereField(),
   ],
 })
 

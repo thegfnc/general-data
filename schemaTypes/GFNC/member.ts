@@ -44,6 +44,28 @@ const schema = defineType({
       ],
     }),
     defineField({
+      title: 'Hover Profile Picture',
+      name: 'hoverProfilePicture',
+      type: 'image',
+      validation: (Rule) => Rule.required().assetRequired(),
+      options: {
+        aiAssist: {
+          imageDescriptionField: 'caption',
+        },
+        hotspot: true,
+        storeOriginalFilename: false,
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          description: 'This is only used for accessiblity and will not be displayed on the site.',
+          validation: (Rule) => Rule.required(),
+        },
+      ],
+    }),
+    defineField({
       title: 'Roles',
       name: 'roles',
       type: 'array',

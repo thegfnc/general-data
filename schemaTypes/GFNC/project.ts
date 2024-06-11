@@ -1,13 +1,5 @@
 import { ImageIcon } from '@sanity/icons'
-import {
-  FieldDefinition,
-  ImageAsset,
-  ImageDefinition,
-  ObjectField,
-  SanityDocument,
-  defineField,
-  defineType,
-} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 const schema = defineType({
   title: 'Project',
@@ -81,30 +73,6 @@ const schema = defineType({
       name: 'featured',
       type: 'boolean',
       description: 'If checked, this project will be featured on the homepage.',
-    }),
-    defineField({
-      title: 'Main Image',
-      name: 'mainImage',
-      type: 'image',
-      description:
-        'This image is used as the thumbnail on list pages (Projects, Homepage) and the banner on the project detail page.',
-      validation: (Rule) => Rule.required().assetRequired(),
-      options: {
-        aiAssist: {
-          imageDescriptionField: 'caption',
-        },
-        hotspot: true,
-        storeOriginalFilename: false,
-      },
-      fields: [
-        {
-          name: 'caption',
-          type: 'string',
-          title: 'Caption',
-          description: 'This is only used for accessiblity and will not be displayed on the site.',
-          validation: (Rule) => Rule.required(),
-        },
-      ],
     }),
     defineField({
       title: 'Main Media',

@@ -9,7 +9,14 @@ const schema = defineType({
     select: {
       title: 'title',
       subtitle: 'clientName',
-      media: 'mainImage',
+      media: 'mainMedia',
+    },
+    prepare(selection) {
+      return {
+        title: selection.title,
+        subtitle: selection.subtitle,
+        media: selection.media.find((media: { _type: string }) => media._type === 'image'),
+      }
     },
   },
   fields: [

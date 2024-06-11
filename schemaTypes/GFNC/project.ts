@@ -130,7 +130,7 @@ const schema = defineType({
           ],
         },
       ],
-      validation: (Rule) => Rule.required().min(1).max(1),
+      validation: (Rule) => Rule.required().length(1),
     }),
     defineField({
       title: 'Summary',

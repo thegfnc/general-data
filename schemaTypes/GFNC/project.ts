@@ -1,4 +1,4 @@
-import { PlayIcon } from '@sanity/icons'
+import { ImageIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 const schema = defineType({
@@ -97,6 +97,40 @@ const schema = defineType({
           validation: (Rule) => Rule.required(),
         },
       ],
+    }),
+    defineField({
+      title: 'Main Media',
+      name: 'mainMedia',
+      type: 'array',
+      description:
+        'This media is used as the thumbnail on list pages (Projects, Homepage) and the banner on the project detail page. You can add either a video or an image, but not both.',
+      of: [
+        { type: 'videoFile' },
+        {
+          type: 'image',
+          title: 'Image',
+          icon: ImageIcon,
+          validation: (Rule) => Rule.required().assetRequired(),
+          options: {
+            aiAssist: {
+              imageDescriptionField: 'caption',
+            },
+            hotspot: true,
+            storeOriginalFilename: false,
+          },
+          fields: [
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+              description:
+                'This is only used for accessiblity and will not be displayed on the site.',
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+        },
+      ],
+      validation: (Rule) => Rule.required().min(1).max(1),
     }),
     defineField({
       title: 'Summary',

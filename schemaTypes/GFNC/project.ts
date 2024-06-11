@@ -1,5 +1,13 @@
 import { ImageIcon } from '@sanity/icons'
-import { defineField, defineType } from 'sanity'
+import {
+  FieldDefinition,
+  ImageAsset,
+  ImageDefinition,
+  ObjectField,
+  SanityDocument,
+  defineField,
+  defineType,
+} from 'sanity'
 
 const schema = defineType({
   title: 'Project',
@@ -103,7 +111,7 @@ const schema = defineType({
       name: 'mainMedia',
       type: 'array',
       description:
-        'This media is used as the thumbnail on list pages (Projects, Homepage) and the banner on the project detail page. You can add either a video or an image, but not both.',
+        'This media is used as the thumbnail on list pages (Projects, Homepage), the banner on the project detail page, adn the social media share image. You must add an image but you can add a video as well. If you add both media types, the video will be used on the site and the image will be used for social media share thumbnail.',
       of: [
         { type: 'videoFile' },
         {
@@ -130,7 +138,23 @@ const schema = defineType({
           ],
         },
       ],
-      validation: (Rule) => Rule.required().length(1),
+      // validation: (Rule) => Rule.required().min(1).max(2),
+      validation: (Rule) =>
+        Rule.min(1)
+          .max(2)
+          .custom((mainMedia: Array<{ _type: string }> = []) => {
+            const imageCount = mainMedia.filter((media) => media._type === 'image').length
+
+            if (imageCount === 0) {
+              return 'The array must contain at least one image.'
+            }
+
+            if (imageCount > 1) {
+              return 'The array must contain only one image.'
+            }
+
+            return true
+          }),
     }),
     defineField({
       title: 'Summary',

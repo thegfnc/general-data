@@ -111,7 +111,7 @@ const schema = defineType({
       name: 'mainMedia',
       type: 'array',
       description:
-        'This media is used as the thumbnail on list pages (Projects, Homepage), the banner on the project detail page, adn the social media share image. You must add an image but you can add a video as well. If you add both media types, the video will be used on the site and the image will be used for social media share thumbnail.',
+        'This media is used as the thumbnail on list pages (Projects, Homepage), the banner on the project detail page, and the social media share image. You must add an image but you can add a video as well. If you add both media types, the video will be used on the website and the image will be used for social media share thumbnail.',
       of: [
         { type: 'videoFile' },
         {

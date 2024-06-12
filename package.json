@@ -20,7 +20,7 @@
     "@sanity/assist": "^3.0.4",
     "@sanity/code-input": "^4.1.4",
     "@sanity/icons": "^3.2.0",
-    "@sanity/ui": "^2.3.2",
+    "@sanity/ui": "^2.3.3",
     "@sanity/vision": "^3.45.0",
     "csv": "^6.3.9",
     "dlv": "^1.1.3",

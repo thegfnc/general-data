@@ -15,7 +15,7 @@ const schema = defineType({
       return {
         title: selection.title,
         subtitle: selection.subtitle,
-        media: selection.media.find((media: { _type: string }) => media._type === 'image'),
+        media: selection.media?.find((media: { _type: string }) => media._type === 'image'),
       }
     },
   },

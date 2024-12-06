@@ -81,6 +81,8 @@ const schema = defineType({
               'Photographer',
               'Designer',
               'Business Development',
+              'Technical Designer',
+              'Entrepreneur'
             ],
           },
         },

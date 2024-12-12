@@ -5,10 +5,11 @@ import ReferencedBy from '../plugins/referencedBy'
 
 export const GFNC_icon = <img src="/static/GFNC_icon.png" alt="GFNC" />
 export const IIHD_icon = <img src="/static/IIHD_icon.png" alt="IIHD" />
+export const DIMR_icon = <img src="/static/DIMR_icon.png" alt="DIMR" />
 
 export const structure: StructureResolver = (S) => {
-  const GFNC_memberList = S.documentTypeList('GFNC_member').apiVersion('v2024-04-18')
-  const GFNC_projectList = S.documentTypeList('GFNC_project').apiVersion('v2024-04-18')
+  const GFNC_memberList = S.documentTypeList('GFNC_member').apiVersion('v2024-12-12')
+  const GFNC_projectList = S.documentTypeList('GFNC_project').apiVersion('v2024-12-12')
 
   const GFNC_ListItem = S.listItem()
     .title('The Good for Nothings Club [GFNC]')
@@ -28,14 +29,14 @@ export const structure: StructureResolver = (S) => {
         ]),
     )
 
-  const IIHD_countryList = S.documentTypeList('IIHD_country').apiVersion('v2024-04-18')
+  const IIHD_countryList = S.documentTypeList('IIHD_country').apiVersion('v2024-12-12')
   const IIHD_administrativeAreaLevel1List = S.documentTypeList(
     'IIHD_administrativeAreaLevel1',
-  ).apiVersion('v2024-04-18')
+  ).apiVersion('v2024-12-12')
   const IIHD_administrativeAreaLevel2List = S.documentTypeList(
     'IIHD_administrativeAreaLevel2',
-  ).apiVersion('v2024-04-18')
-  const IIHD_localityList = S.documentTypeList('IIHD_locality').apiVersion('v2024-04-18')
+  ).apiVersion('v2024-12-12')
+  const IIHD_localityList = S.documentTypeList('IIHD_locality').apiVersion('v2024-12-12')
 
   const IIHD_ListItem = S.listItem()
     .title('Is It Here? Data [IIHD]')
@@ -88,6 +89,27 @@ export const structure: StructureResolver = (S) => {
         ]),
     )
 
+  const DIMR_blogPostList = S.documentTypeList('DIMR_blogPost').apiVersion('v2024-12-12')
+  const DIMR_authorList = S.documentTypeList('DIMR_author').apiVersion('v2024-12-12')
+
+  const DIMR_ListItem = S.listItem()
+    .title('Ditch My Rent [DIMR]')
+    .icon(() => DIMR_icon)
+    .child(
+      S.list()
+        .title('DIMR Documents')
+        .items([
+          S.listItem()
+            .icon(() => DIMR_icon)
+            .title(DIMR_blogPostList.getTitle() || '')
+            .child(DIMR_blogPostList),
+          S.listItem()
+            .icon(() => DIMR_icon)
+            .title(DIMR_authorList.getTitle() || '')
+            .child(DIMR_authorList),
+        ]),
+    )
+
   return S.list()
     .title('Projects')
     .items([
@@ -98,6 +120,7 @@ export const structure: StructureResolver = (S) => {
       S.divider(),
       GFNC_ListItem,
       IIHD_ListItem,
+      DIMR_ListItem,
     ])
 }
 

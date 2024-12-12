@@ -7,6 +7,7 @@
   - `IWLH` – https://www.isweedlegalhere.com/ - Is Weed Legal Here? data
   - `IGLH` – https://www.isgamblinglegalhere.com/ - Is Gambling Legal Here? data
   - `WBCH` – https://www.whendobarsclosehere.com/ - When Do Bars Close Here? data
+- `DIMR` - Ditch My Rent - https://www.ditchmyrent.com/ - Ditch My Rent data
 
 ## Things to remember
 

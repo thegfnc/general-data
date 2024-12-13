@@ -7,7 +7,7 @@ const schema = defineType({
   preview: {
     select: {
       title: 'title',
-      subtitle: 'author',
+      subtitle: 'author.fullName',
       media: 'featuredImage',
     },
   },
@@ -133,33 +133,6 @@ const schema = defineType({
       type: 'reference',
       to: [{ type: 'DIMR_author' }],
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'seo',
-      title: 'SEO',
-      type: 'object',
-      fields: [
-        {
-          title: 'Meta Title',
-          name: 'metaTitle',
-          type: 'string',
-          description: 'This is the title that appears in search engine results. Should be 50-60 characters.',
-        },
-        {
-          title: 'Meta Description',
-          name: 'metaDescription',
-          type: 'text',
-          description: 'This is the description that appears in search engine results. Should be 150-160 characters.',
-          rows: 3
-        },
-        {
-          title: 'Keywords',
-          name: 'keywords',
-          type: 'array',
-          of: [{ type: 'string' }],
-          description: 'These are the keywords that help search engines understand what this page is about.',
-        }
-      ]
     }),
     defineField({
       name: 'publishedAt',

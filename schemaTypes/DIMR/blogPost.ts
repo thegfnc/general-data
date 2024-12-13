@@ -137,7 +137,7 @@ const schema = defineType({
     defineField({
       name: 'publishedAt',
       title: 'Published Date',
-      type: 'datetime',
+      type: 'date',
       description: 'Leave blank until ready to publish.',
       validation: (Rule) => Rule.required(),
     }),

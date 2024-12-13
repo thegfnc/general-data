@@ -6,8 +6,9 @@ const schema = defineType({
   type: 'document',
   preview: {
     select: {
-      title: 'title',
-      media: 'mainMedia',
+      title: 'fullName',
+      subtitle: 'title',
+      media: 'profilePicture',
     },
   },
   fields: [

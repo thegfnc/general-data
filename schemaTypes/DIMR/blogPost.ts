@@ -90,7 +90,7 @@ const schema = defineType({
     }),
     defineField({
       title: 'Category',
-      name: 'type',
+      name: 'category',
       type: 'string',
       options: {
         list: [

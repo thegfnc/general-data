@@ -56,6 +56,30 @@ const schema = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      title: 'Status',
+      name: 'status',
+      type: 'string',
+      options: {
+        list: ['In Progress', 'Completed', 'Paused', 'Canceled'],
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Date Started',
+      name: 'dateStarted',
+      type: 'date',
+      description: 'The date the project was started. Used for sorting on the projects list page.',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Date Completed',
+      name: 'dateCompleted',
+      type: 'date',
+      description:
+        'The date the project was completed. Used for sorting on the projects list page.',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       title: 'Date Completed',
       name: 'dateCompleted',
       type: 'date',

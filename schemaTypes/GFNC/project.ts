@@ -80,14 +80,6 @@ const schema = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      title: 'Date Completed',
-      name: 'dateCompleted',
-      type: 'date',
-      description:
-        'The date the project was completed. Used for sorting on the projects list page.',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       title: 'Members Involved',
       name: 'membersInvolved',
       type: 'array',

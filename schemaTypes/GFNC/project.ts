@@ -69,7 +69,6 @@ const schema = defineType({
       name: 'dateStarted',
       type: 'date',
       description: 'The date the project was started. Used for sorting on the projects list page.',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       title: 'Date Completed',
@@ -77,7 +76,6 @@ const schema = defineType({
       type: 'date',
       description:
         'The date the project was completed. Used for sorting on the projects list page.',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       title: 'Members Involved',

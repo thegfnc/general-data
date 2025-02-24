@@ -161,11 +161,8 @@ const schema = defineType({
         },
       ],
       description:
-        "A brief summary of the project to use under the thumbnail on the projects list page and the homepage if it's featured. It is typically a more concise version of the overview.",
+        "A brief summary of the project to use under the thumbnail on the projects list page and the homepage if it's featured. It is typically a more concise, less formatted version of the overview.",
       validation: (Rule) => Rule.required().max(500),
-      deprecated: {
-        reason: 'Use the "Overview" field instead.',
-      },
     }),
     defineField({
       title: 'Overview',
@@ -179,7 +176,7 @@ const schema = defineType({
         },
       ],
       description:
-        "This appears on the project page, below the featured image and above the case study. It also used under the thumbnail on the projects list page and the homepage if it's featured, truncated if it's too long.",
+        'This appears on the project page, below the featured image and above the case study.',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

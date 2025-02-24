@@ -51,7 +51,7 @@ const schema = defineType({
       name: 'type',
       type: 'string',
       options: {
-        list: ['Web', 'Video', 'Photo', 'Audio'],
+        list: ['Web', 'Video', 'Photo', 'Audio', 'Event'],
       },
       validation: (Rule) => Rule.required(),
     }),

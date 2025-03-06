@@ -18,18 +18,18 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/assist": "^3.1.1",
+    "@sanity/assist": "^3.2.0",
     "@sanity/code-input": "^5.1.2",
-    "@sanity/icons": "^3.6.0",
-    "@sanity/ui": "^2.14.3",
-    "@sanity/vision": "^3.77.0",
+    "@sanity/icons": "^3.7.0",
+    "@sanity/ui": "^2.15.2",
+    "@sanity/vision": "^3.78.0",
     "csv": "^6.3.11",
     "dlv": "^1.1.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-is": "^18.3.1",
     "react-player": "^2.16.0",
-    "sanity": "^3.77.0",
+    "sanity": "^3.78.0",
     "sanity-plugin-asset-source-unsplash": "^3.0.3",
     "sanity-plugin-media": "^2.3.2",
     "sanity-plugin-tags": "^2.1.1",
@@ -39,14 +39,14 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.19.0",
-    "@sanity/eslint-config-studio": "^5.0.1",
+    "@sanity/eslint-config-studio": "^5.0.2",
     "@types/dlv": "^1.1.5",
     "@types/react": "^18.3.18",
     "@typescript-eslint/eslint-plugin": "^8.21.0",
     "eslint": "^9.21.0",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "prettier": "^3.5.2",
-    "typescript": "^5.7.3"
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
   },
   "prettier": {
     "semi": false,

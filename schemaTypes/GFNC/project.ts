@@ -1,5 +1,5 @@
 import { ImageIcon } from '@sanity/icons'
-import { defineField, defineType } from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 const schema = defineType({
   title: 'Project',
@@ -71,21 +71,21 @@ const schema = defineType({
       description: 'The date the project was started. Used for sorting on the projects list page.',
     }),
     defineField({
-      title: 'Date Completed',
+      title: 'Date Ended',
       name: 'dateCompleted',
       type: 'date',
       description:
-        'The date the project was completed. Used for sorting on the projects list page.',
+        'The date the project was completed, paused, or canceled. Used for sorting on the projects list page.',
     }),
     defineField({
       title: 'Members Involved',
       name: 'membersInvolved',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'reference',
           to: [{ type: 'GFNC_member' }],
-        },
+        }),
       ],
       validation: (Rule) => Rule.required(),
     }),
@@ -94,6 +94,7 @@ const schema = defineType({
       name: 'featured',
       type: 'boolean',
       description: 'If checked, this project will be featured on the homepage.',
+      initialValue: false,
     }),
     defineField({
       title: 'Main Media',
@@ -102,8 +103,8 @@ const schema = defineType({
       description:
         'This media is used as the thumbnail on list pages (Projects, Homepage), the banner on the project detail page, and the social media share image. You must add an image but you can add a video as well. If you add both media types, the video will be used on the website and the image will be used for social media share thumbnail.',
       of: [
-        { type: 'videoFile' },
-        {
+        defineArrayMember({ type: 'videoFile' }),
+        defineArrayMember({
           type: 'image',
           title: 'Image',
           icon: ImageIcon,
@@ -125,7 +126,7 @@ const schema = defineType({
               validation: (Rule) => Rule.required(),
             },
           ],
-        },
+        }),
       ],
       // validation: (Rule) => Rule.required().min(1).max(2),
       validation: (Rule) =>
@@ -150,7 +151,7 @@ const schema = defineType({
       name: 'summary',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'block',
           styles: [{ title: 'Normal', value: 'normal' }],
           lists: [],
@@ -158,7 +159,7 @@ const schema = defineType({
             decorators: [],
             annotations: [],
           },
-        },
+        }),
       ],
       description:
         "A brief summary of the project to use under the thumbnail on the projects list page and the homepage if it's featured. It is typically a more concise, less formatted version of the overview.",
@@ -169,11 +170,11 @@ const schema = defineType({
       name: 'overview',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'block',
           styles: [{ title: 'Normal', value: 'normal' }],
           lists: [],
-        },
+        }),
       ],
       description:
         'This appears on the project page, below the featured image and above the case study.',
@@ -186,7 +187,7 @@ const schema = defineType({
       description:
         'This is an optional gallery of images that will appear above the case study. This should mainly be used for photo projects.',
       of: [
-        {
+        defineArrayMember({
           type: 'image',
           options: {
             aiAssist: {
@@ -205,7 +206,7 @@ const schema = defineType({
               validation: (Rule) => Rule.required(),
             },
           ],
-        },
+        }),
       ],
     }),
     defineField({
@@ -215,8 +216,8 @@ const schema = defineType({
       description:
         'This is the main content for project pages, appearing below the overview. This is optional for photo projects.',
       of: [
-        { type: 'block' },
-        {
+        defineArrayMember({ type: 'block' }),
+        defineArrayMember({
           type: 'image',
           options: {
             aiAssist: {
@@ -235,10 +236,10 @@ const schema = defineType({
               validation: (Rule) => Rule.required(),
             },
           ],
-        },
-        { type: 'videoFile' },
-        { type: 'embedUrl' },
-        { type: 'embedCode' },
+        }),
+        defineArrayMember({ type: 'videoFile' }),
+        defineArrayMember({ type: 'embedUrl' }),
+        defineArrayMember({ type: 'embedCode' }),
       ],
     }),
   ],

@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 const schema = defineType({
   title: 'Member',
@@ -70,7 +70,7 @@ const schema = defineType({
       name: 'roles',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'string',
           options: {
             list: [
@@ -82,10 +82,10 @@ const schema = defineType({
               'Designer',
               'Business Development',
               'Technical Designer',
-              'Entrepreneur'
+              'Entrepreneur',
             ],
           },
-        },
+        }),
       ],
       description: "If you need new role added that isn't represented here, contact Jason.",
       validation: (Rule) => Rule.required(),

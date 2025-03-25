@@ -7,7 +7,7 @@ const schema = defineType({
   preview: {
     select: {
       title: 'title',
-      subtitle: 'slug',
+      subtitle: 'slug.current',
     },
   },
   fields: [

@@ -34,7 +34,7 @@ const schema = defineType({
       name: 'content',
       type: 'array',
       description:
-        'This is the main body content for the blog post. This supports rich text and embedded media.',
+        'This is the main body content for the prompt. Write the prompt as rich text and it will be converted to markdown for the app.',
       of: [{ type: 'block' }],
     }),
   ],

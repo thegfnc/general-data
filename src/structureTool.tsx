@@ -1,6 +1,6 @@
 import { contextDocumentTypeName } from '@sanity/assist'
 import { CalendarIcon } from '@sanity/icons'
-import { DefaultDocumentNodeResolver, StructureResolver } from 'sanity/structure'
+import type { DefaultDocumentNodeResolver, StructureResolver } from 'sanity/structure'
 import ReferencedBy from '../plugins/referencedBy'
 
 export const GFNC_icon = <img src="/static/GFNC_icon.png" alt="GFNC" />
@@ -8,8 +8,8 @@ export const IIHD_icon = <img src="/static/IIHD_icon.png" alt="IIHD" />
 export const DIMR_icon = <img src="/static/DIMR_icon.png" alt="DIMR" />
 
 export const structure: StructureResolver = (S) => {
-  const GFNC_memberList = S.documentTypeList('GFNC_member').apiVersion('v2024-12-12')
-  const GFNC_projectList = S.documentTypeList('GFNC_project').apiVersion('v2024-12-12')
+  const GFNC_memberList = S.documentTypeList('GFNC_member').apiVersion('v2025-03-25')
+  const GFNC_projectList = S.documentTypeList('GFNC_project').apiVersion('v2025-03-25')
 
   const GFNC_ListItem = S.listItem()
     .title('The Good for Nothings Club [GFNC]')
@@ -29,14 +29,14 @@ export const structure: StructureResolver = (S) => {
         ]),
     )
 
-  const IIHD_countryList = S.documentTypeList('IIHD_country').apiVersion('v2024-12-12')
+  const IIHD_countryList = S.documentTypeList('IIHD_country').apiVersion('v2025-03-25')
   const IIHD_administrativeAreaLevel1List = S.documentTypeList(
     'IIHD_administrativeAreaLevel1',
-  ).apiVersion('v2024-12-12')
+  ).apiVersion('v2025-03-25')
   const IIHD_administrativeAreaLevel2List = S.documentTypeList(
     'IIHD_administrativeAreaLevel2',
-  ).apiVersion('v2024-12-12')
-  const IIHD_localityList = S.documentTypeList('IIHD_locality').apiVersion('v2024-12-12')
+  ).apiVersion('v2025-03-25')
+  const IIHD_localityList = S.documentTypeList('IIHD_locality').apiVersion('v2025-03-25')
 
   const IIHD_ListItem = S.listItem()
     .title('Is It Here? Data [IIHD]')
@@ -89,8 +89,15 @@ export const structure: StructureResolver = (S) => {
         ]),
     )
 
-  const DIMR_blogPostList = S.documentTypeList('DIMR_blogPost').apiVersion('v2024-12-12')
-  const DIMR_authorList = S.documentTypeList('DIMR_author').apiVersion('v2024-12-12')
+  const RSID_prompt = S.documentTypeList('RSID_prompt').apiVersion('v2025-03-25')
+
+  const RSID_ListItem = S.listItem()
+    .title('Renters Sidekick [RSID]')
+    .icon(() => <img src="/static/GFNC_icon.png" alt="RSID" />)
+    .child(RSID_prompt)
+
+  const DIMR_blogPostList = S.documentTypeList('DIMR_blogPost').apiVersion('v2025-03-25')
+  const DIMR_authorList = S.documentTypeList('DIMR_author').apiVersion('v2025-03-25')
 
   const DIMR_ListItem = S.listItem()
     .title('Ditch My Rent [DIMR]')
@@ -120,6 +127,7 @@ export const structure: StructureResolver = (S) => {
       S.divider(),
       GFNC_ListItem,
       IIHD_ListItem,
+      RSID_ListItem,
       DIMR_ListItem,
     ])
 }

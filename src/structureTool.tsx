@@ -126,8 +126,9 @@ export const structure: StructureResolver = (S) => {
       S.documentTypeListItem(contextDocumentTypeName),
       S.divider(),
       GFNC_ListItem,
-      IIHD_ListItem,
       RSID_ListItem,
+      S.divider(),
+      IIHD_ListItem,
       DIMR_ListItem,
     ])
 }

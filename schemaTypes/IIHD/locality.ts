@@ -1,5 +1,5 @@
 import { defineType, defineField } from 'sanity'
-import { StringRule } from '@sanity/types'
+import type { StringRule } from '@sanity/types'
 
 import {
   group as isWeedLegalHereGroup,

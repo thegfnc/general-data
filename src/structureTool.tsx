@@ -117,6 +117,27 @@ export const structure: StructureResolver = (S) => {
         ]),
     )
 
+  const NINE_creditList = S.documentTypeList('NINE_credit').apiVersion('v2025-03-25')
+  // const NINE_equipmentList = S.documentTypeList('NINE_equipment').apiVersion('v2025-03-25')
+
+  const NINE_ListItem = S.listItem()
+    .title('9 Point Studios [NINE]')
+    .icon(() => GFNC_icon)
+    .child(
+      S.list()
+        .title('NINE Documents')
+        .items([
+          S.listItem()
+            .icon(() => GFNC_icon)
+            .title(NINE_creditList.getTitle() || '')
+            .child(NINE_creditList),
+          // S.listItem()
+          //   .icon(() => GFNC_icon)
+          //   .title(NINE_equipmentList.getTitle() || '')
+          //   .child(NINE_equipmentList),
+        ]),
+    )
+
   return S.list()
     .title('Projects')
     .items([
@@ -126,8 +147,9 @@ export const structure: StructureResolver = (S) => {
       S.documentTypeListItem(contextDocumentTypeName),
       S.divider(),
       GFNC_ListItem,
-      RSID_ListItem,
+      NINE_ListItem,
       S.divider(),
+      RSID_ListItem,
       IIHD_ListItem,
       DIMR_ListItem,
     ])

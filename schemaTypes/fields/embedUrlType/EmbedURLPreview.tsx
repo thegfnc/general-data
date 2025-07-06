@@ -10,7 +10,7 @@ export function EmbedURLPreview(props: PreviewProps) {
       <Stack space={4}>
         <Heading size={0}>Embed URL</Heading>
         <Flex padding={3} align="center" justify="center">
-          {typeof url === 'string' ? <ReactPlayer url={url} /> : <Text>Add an embed URL</Text>}
+          {typeof url === 'string' ? <ReactPlayer src={url} /> : <Text>Add an embed URL</Text>}
         </Flex>
       </Stack>
     </Card>

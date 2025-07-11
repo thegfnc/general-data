@@ -8,8 +8,8 @@ export const IIHD_icon = <img src="/static/IIHD_icon.png" alt="IIHD" />
 export const DIMR_icon = <img src="/static/DIMR_icon.png" alt="DIMR" />
 
 export const structure: StructureResolver = (S) => {
-  const GFNC_memberList = S.documentTypeList('GFNC_member').apiVersion('v2025-03-25')
-  const GFNC_projectList = S.documentTypeList('GFNC_project').apiVersion('v2025-03-25')
+  const GFNC_memberList = S.documentTypeList('GFNC_member').apiVersion('v2025-07-11')
+  const GFNC_projectList = S.documentTypeList('GFNC_project').apiVersion('v2025-07-11')
 
   const GFNC_ListItem = S.listItem()
     .title('The Good for Nothings Club [GFNC]')
@@ -29,14 +29,14 @@ export const structure: StructureResolver = (S) => {
         ]),
     )
 
-  const IIHD_countryList = S.documentTypeList('IIHD_country').apiVersion('v2025-03-25')
+  const IIHD_countryList = S.documentTypeList('IIHD_country').apiVersion('v2025-07-11')
   const IIHD_administrativeAreaLevel1List = S.documentTypeList(
     'IIHD_administrativeAreaLevel1',
-  ).apiVersion('v2025-03-25')
+  ).apiVersion('v2025-07-11')
   const IIHD_administrativeAreaLevel2List = S.documentTypeList(
     'IIHD_administrativeAreaLevel2',
-  ).apiVersion('v2025-03-25')
-  const IIHD_localityList = S.documentTypeList('IIHD_locality').apiVersion('v2025-03-25')
+  ).apiVersion('v2025-07-11')
+  const IIHD_localityList = S.documentTypeList('IIHD_locality').apiVersion('v2025-07-11')
 
   const IIHD_ListItem = S.listItem()
     .title('Is It Here? Data [IIHD]')
@@ -89,15 +89,15 @@ export const structure: StructureResolver = (S) => {
         ]),
     )
 
-  const RSID_prompt = S.documentTypeList('RSID_prompt').apiVersion('v2025-03-25')
+  const RSID_prompt = S.documentTypeList('RSID_prompt').apiVersion('v2025-07-11')
 
   const RSID_ListItem = S.listItem()
     .title('Renters Sidekick [RSID]')
     .icon(() => <img src="/static/GFNC_icon.png" alt="RSID" />)
     .child(RSID_prompt)
 
-  const DIMR_blogPostList = S.documentTypeList('DIMR_blogPost').apiVersion('v2025-03-25')
-  const DIMR_authorList = S.documentTypeList('DIMR_author').apiVersion('v2025-03-25')
+  const DIMR_blogPostList = S.documentTypeList('DIMR_blogPost').apiVersion('v2025-07-11')
+  const DIMR_authorList = S.documentTypeList('DIMR_author').apiVersion('v2025-07-11')
 
   const DIMR_ListItem = S.listItem()
     .title('Ditch My Rent [DIMR]')
@@ -117,8 +117,12 @@ export const structure: StructureResolver = (S) => {
         ]),
     )
 
-  const NINE_creditList = S.documentTypeList('NINE_credit').apiVersion('v2025-03-25')
-  // const NINE_equipmentList = S.documentTypeList('NINE_equipment').apiVersion('v2025-03-25')
+  const NINE_creditList = S.documentTypeList('NINE_credit').apiVersion('v2025-07-11')
+  const NINE_equipmentList = S.documentTypeList('NINE_equipment').apiVersion('v2025-07-11')
+  const NINE_memberList = S.documentTypeList('NINE_member').apiVersion('v2025-07-11')
+  const NINE_sessionList = S.documentTypeList('NINE_session').apiVersion('v2025-07-11')
+  const NINE_songList = S.documentTypeList('NINE_song').apiVersion('v2025-07-11')
+  const NINE_videoList = S.documentTypeList('NINE_video').apiVersion('v2025-07-11')
 
   const NINE_ListItem = S.listItem()
     .title('9 Point Studios [NINE]')
@@ -131,10 +135,26 @@ export const structure: StructureResolver = (S) => {
             .icon(() => GFNC_icon)
             .title(NINE_creditList.getTitle() || '')
             .child(NINE_creditList),
-          // S.listItem()
-          //   .icon(() => GFNC_icon)
-          //   .title(NINE_equipmentList.getTitle() || '')
-          //   .child(NINE_equipmentList),
+          S.listItem()
+            .icon(() => GFNC_icon)
+            .title(NINE_equipmentList.getTitle() || '')
+            .child(NINE_equipmentList),
+          S.listItem()
+            .icon(() => GFNC_icon)
+            .title(NINE_memberList.getTitle() || '')
+            .child(NINE_memberList),
+          S.listItem()
+            .icon(() => GFNC_icon)
+            .title(NINE_sessionList.getTitle() || '')
+            .child(NINE_sessionList),
+          S.listItem()
+            .icon(() => GFNC_icon)
+            .title(NINE_songList.getTitle() || '')
+            .child(NINE_songList),
+          S.listItem()
+            .icon(() => GFNC_icon)
+            .title(NINE_videoList.getTitle() || '')
+            .child(NINE_videoList),
         ]),
     )
 

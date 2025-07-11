@@ -10,6 +10,11 @@ import IIHD_country from './IIHD/country'
 import IIHD_locality from './IIHD/locality'
 
 import NINE_credit from './NINE/credit'
+import NINE_equipment from './NINE/equipment'
+import NINE_member from './NINE/member'
+import NINE_session from './NINE/session'
+import NINE_song from './NINE/song'
+import NINE_video from './NINE/video'
 
 import RSID_prompt from './RSID/prompt'
 
@@ -30,6 +35,11 @@ export const schemaTypes = [
   IIHD_locality,
 
   NINE_credit,
+  NINE_equipment,
+  NINE_member,
+  NINE_session,
+  NINE_song,
+  NINE_video,
 
   RSID_prompt,
 

@@ -27,6 +27,12 @@ const schema = defineType({
       validation: (Rule) => Rule.required().min(1).max(200),
     }),
     defineField({
+      title: 'Credits',
+      name: 'credits',
+      type: 'string',
+      description: 'The credits for the song.',
+    }),
+    defineField({
       title: 'Youtube URL',
       name: 'youtubeUrl',
       type: 'url',

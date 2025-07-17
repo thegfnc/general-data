@@ -6,9 +6,9 @@ const schema = defineType({
   type: 'document',
   preview: {
     select: {
-      title: 'songTitle',
-      subtitle: 'artist',
-      media: 'albumCover',
+      title: 'artist',
+      subtitle: 'dateStreamed',
+      media: 'videoPosterImage',
     },
   },
   fields: [

@@ -36,7 +36,7 @@ const schema = defineType({
       title: 'Youtube URL',
       name: 'youtubeUrl',
       type: 'url',
-      description: 'The URL of the Youtube video.',
+      description: 'The embeddable URL of the Youtube video.',
       validation: (Rule) => Rule.required().uri({ scheme: ['http', 'https'] }),
     }),
     defineField({

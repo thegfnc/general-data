@@ -8,7 +8,7 @@ const schema = defineType({
     select: {
       title: 'songTitle',
       subtitle: 'artist',
-      media: 'albumCover',
+      media: 'thumbnailImage',
     },
   },
   fields: [

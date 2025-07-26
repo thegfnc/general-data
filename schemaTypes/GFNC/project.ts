@@ -69,13 +69,14 @@ const schema = defineType({
       name: 'dateStarted',
       type: 'date',
       description: 'The date the project was started. Used for sorting on the projects list page.',
+      hidden: ({ document }) => document?.type === 'Event', // Hide for Event projects
     }),
     defineField({
       title: 'Date Ended',
       name: 'dateCompleted',
       type: 'date',
       description:
-        'The date the project was completed, paused, or canceled. Used for sorting on the projects list page.',
+        'The date the project was completed, paused, or canceled. For events, it is the end date of the event. Used for sorting on the projects list page.',
     }),
     defineField({
       title: 'Members Involved',

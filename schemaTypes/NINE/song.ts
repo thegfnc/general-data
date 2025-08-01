@@ -62,6 +62,13 @@ const schema = defineType({
       validation: (Rule) => Rule.required().assetRequired(),
     }),
     defineField({
+      title: 'Track Length',
+      name: 'trackLength',
+      type: 'string',
+      description: 'The length of the track in the format MM:SS.',
+      validation: (Rule) => Rule.required().min(1).max(10),
+    }),
+    defineField({
       title: 'Album Cover',
       name: 'albumCover',
       type: 'image',

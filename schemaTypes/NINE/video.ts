@@ -13,6 +13,13 @@ const schema = defineType({
   },
   fields: [
     defineField({
+      title: 'Track Number',
+      name: 'trackNumber',
+      type: 'number',
+      description: 'The track number of the song in the playlist.',
+      validation: (Rule) => Rule.required().min(1).max(100),
+    }),
+    defineField({
       title: 'Artist',
       name: 'artist',
       type: 'string',

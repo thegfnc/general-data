@@ -9,6 +9,14 @@ const schema = defineType({
       title: 'songTitle',
       subtitle: 'artist',
       media: 'thumbnailImage',
+      trackNumber: 'trackNumber',
+    },
+    prepare(selection) {
+      return {
+        title: selection.trackNumber + ' - ' + selection.title,
+        subtitle: selection.subtitle,
+        media: selection.media,
+      }
     },
   },
   fields: [

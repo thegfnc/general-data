@@ -33,6 +33,12 @@ const schema = defineType({
       description: 'The credits for the song.',
     }),
     defineField({
+      title: 'Auxiliary Credits',
+      name: 'auxiliaryCredits',
+      type: 'string',
+      description: 'The auxiliary credits for contributors outside of 9 Point Studios.',
+    }),
+    defineField({
       title: 'Youtube URL',
       name: 'youtubeUrl',
       type: 'url',

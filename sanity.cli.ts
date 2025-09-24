@@ -5,5 +5,8 @@ export default defineCliConfig({
     projectId: 'ojzttvlq',
     dataset: 'production',
   },
-  studioHost: 'thegfnc-general-data'
+  studioHost: 'thegfnc-general-data',
+  deployment: {
+    appId: '1c0af7098386a7ac6f3dfdf7',
+  },
 })

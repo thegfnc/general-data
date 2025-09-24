@@ -18,8 +18,8 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/assist": "^4.4.8",
-    "@sanity/code-input": "^5.2.1",
+    "@sanity/assist": "^5.0.0",
+    "@sanity/code-input": "^6.0.1",
     "@sanity/icons": "^3.7.4",
     "@sanity/ui": "^3.1.6",
     "@sanity/vision": "^4.10.0",
@@ -30,7 +30,7 @@
     "react-is": "^18.3.1",
     "react-player": "^3.3.3",
     "sanity": "^4.10.0",
-    "sanity-plugin-asset-source-unsplash": "^3.1.0",
+    "sanity-plugin-asset-source-unsplash": "^4.0.1",
     "sanity-plugin-media": "^4.0.0",
     "sanity-plugin-tags": "^2.1.1",
     "sanity-plugin-utils": "^1.6.8",

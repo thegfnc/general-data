@@ -65,6 +65,17 @@ const schema = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      title: 'Main Link',
+      name: 'mainLink',
+      type: 'url',
+      description:
+        'Optional link to the best destination for this project (e.g. RSVP, live site, press).',
+      validation: (Rule) =>
+        Rule.uri({ allowRelative: false, scheme: ['http', 'https'] }).warning(
+          'Links should start with http:// or https://',
+        ),
+    }),
+    defineField({
       title: 'Date Started',
       name: 'dateStarted',
       type: 'date',

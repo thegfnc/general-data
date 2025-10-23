@@ -6,6 +6,8 @@ import { usePaneRouter } from 'sanity/structure'
 import { WarningOutlineIcon } from '@sanity/icons'
 import { Feedback, useListeningQuery } from 'sanity-plugin-utils'
 
+import { isSanityDocumentArray } from '../utils/isSanityDocumentArray'
+
 type ReferencedByDocumentListProps = {
   document: Partial<SanityDocument>
   depth?: number
@@ -38,6 +40,8 @@ export default function ReferencedByDocumentList(props: ReferencedByDocumentList
     initialValue: [],
     options: { perspective: 'previewDrafts' },
   })
+
+  const documents = isSanityDocumentArray(data) ? data : []
 
   const handleClick = useCallback(
     (id: string, type: string) => {
@@ -84,7 +88,7 @@ export default function ReferencedByDocumentList(props: ReferencedByDocumentList
     )
   }
 
-  if (depth === 0 && !data?.length) {
+  if (depth === 0 && !documents.length) {
     return (
       <>
         <Stack padding={4} space={5}>
@@ -94,7 +98,7 @@ export default function ReferencedByDocumentList(props: ReferencedByDocumentList
     )
   }
 
-  if (!data?.length) {
+  if (!documents.length) {
     return null
   }
 
@@ -103,10 +107,10 @@ export default function ReferencedByDocumentList(props: ReferencedByDocumentList
       <Stack padding={2} space={1}>
         <Box padding={2}>
           <Heading as="h2" size={2}>
-            {getHeadingForDocumentType(data[0]._type)}
+            {getHeadingForDocumentType(documents[0]._type)}
           </Heading>
         </Box>
-        {data.map((doc) => {
+        {documents.map((doc) => {
           const schemaType = schema.get(doc._type)
 
           // Fixes display issue with document preview when perspective is 'previewDrafts'
@@ -134,7 +138,7 @@ export default function ReferencedByDocumentList(props: ReferencedByDocumentList
           )
         })}
       </Stack>
-      <ReferencedByDocumentList document={data[0]} depth={depth + 1} />
+      <ReferencedByDocumentList document={documents[0]} depth={depth + 1} />
     </>
   )
 }

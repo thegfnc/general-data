@@ -1,48 +1,52 @@
-import React, {useCallback} from 'react'
-import {Box, Button, Stack, Flex, Spinner, Card} from '@sanity/ui'
-import {fromString as pathFromString} from '@sanity/util/paths'
-import {Preview, useSchema, DefaultPreview, SanityDocument, ListenQueryOptions} from 'sanity'
-import {usePaneRouter} from 'sanity/structure'
-import {WarningOutlineIcon} from '@sanity/icons'
-import {Feedback, useListeningQuery} from 'sanity-plugin-utils'
+import React, { useCallback } from 'react'
+import { Box, Button, Stack, Flex, Spinner, Card } from '@sanity/ui'
+import { fromString as pathFromString } from '@sanity/util/paths'
+import { Preview, useSchema, DefaultPreview, SanityDocument, ListenQueryOptions } from 'sanity'
+import { usePaneRouter } from 'sanity/structure'
+import { WarningOutlineIcon } from '@sanity/icons'
+import { Feedback, useListeningQuery } from 'sanity-plugin-utils'
+
+import { isSanityDocumentArray } from '../utils/isSanityDocumentArray'
 
 import Debug from './Debug'
-import {DocumentsPaneInitialValueTemplate} from './types'
+import { DocumentsPaneInitialValueTemplate } from './types'
 import NewDocument from './NewDocument'
 
 type DocumentsProps = {
   query: string
-  params: {[key: string]: string}
+  params: { [key: string]: string }
   debug: boolean
   initialValueTemplates: DocumentsPaneInitialValueTemplate[]
   options: ListenQueryOptions
 }
 
 export default function Documents(props: DocumentsProps) {
-  const {query, params, options, debug, initialValueTemplates} = props
-  const {routerPanesState, groupIndex, handleEditReference} = usePaneRouter()
+  const { query, params, options, debug, initialValueTemplates } = props
+  const { routerPanesState, groupIndex, handleEditReference } = usePaneRouter()
   const schema = useSchema()
 
-  const {loading, error, data} = useListeningQuery<SanityDocument[]>(query, {
+  const { loading, error, data } = useListeningQuery<SanityDocument[]>(query, {
     params,
     initialValue: [],
     options,
   })
 
+  const documents = isSanityDocumentArray(data) ? data : []
+
   const handleClick = useCallback(
     (id: string, type: string) => {
       const childParams = routerPanesState[groupIndex + 1]?.[0].params || {}
-      const {parentRefPath} = childParams
+      const { parentRefPath } = childParams
 
       handleEditReference({
         id,
         type,
         // Uncertain that this works as intended
         parentRefPath: parentRefPath ? pathFromString(parentRefPath) : [``],
-        template: {id},
+        template: { id },
       })
     },
-    [routerPanesState, groupIndex, handleEditReference]
+    [routerPanesState, groupIndex, handleEditReference],
   )
 
   if (loading) {
@@ -64,7 +68,7 @@ export default function Documents(props: DocumentsProps) {
     )
   }
 
-  if (!data?.length) {
+  if (!documents.length) {
     return (
       <>
         <NewDocument initialValueTemplates={initialValueTemplates} />
@@ -80,7 +84,7 @@ export default function Documents(props: DocumentsProps) {
     <>
       <NewDocument initialValueTemplates={initialValueTemplates} />
       <Stack padding={2} space={1}>
-        {data.map((doc) => {
+        {documents.map((doc) => {
           const schemaType = schema.get(doc._type)
 
           // Fixes display issue with document preview when perspective is 'previewDrafts'
